@@ -3,7 +3,10 @@ var BrowserWindow = require('browser-window');  // Module to create native brows
 var Menu = require('menu');
 
 // Report crashes to our server.
-require('crash-reporter').start();
+require('crash-reporter').start({
+  companyName: 'electron-sample-apps',
+  submitURL: 'http://127.0.0.1:9999'
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
@@ -36,7 +39,7 @@ app.on('ready', function() {
         {
           label: 'Open',
           accelerator: 'CmdOrCtrl+O',
-          click: function() { 
+          click: function() {
             require('electron').dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory', 'multiSelections' ]});
           }
         },
@@ -110,7 +113,7 @@ app.on('ready', function() {
 
   menu = Menu.buildFromTemplate(application_menu);
   Menu.setApplicationMenu(menu);
-  
+
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows

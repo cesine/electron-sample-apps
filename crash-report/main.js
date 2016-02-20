@@ -2,7 +2,11 @@ var app = require('app');
 var BrowserWindow = require('browser-window');
 var http = require('http');
 var crashReporter = require('crash-reporter');
-crashReporter.start({submitUrl: 'http://127.0.0.1:9999'});
+
+crashReporter.start({
+  companyName: 'electron-sample-apps',
+  submitURL: 'http://127.0.0.1:9999'
+});
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;

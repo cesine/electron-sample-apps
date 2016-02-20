@@ -1,6 +1,9 @@
 var crashReporter = require('crash-reporter');
 
-crashReporter.start({submitUrl: 'http://127.0.0.1:9999'});
+crashReporter.start({
+  companyName: 'electron-sample-apps',
+  submitURL: 'http://127.0.0.1:9999'
+});
 
 function showCrashReporter(report) {
   return "<tr><td>" + report.date + "</td>" +
